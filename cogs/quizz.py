@@ -28,6 +28,7 @@ class Quizz_Cog(commands.Cog):
 
     @app_commands.command(name='ask', description="Ask a random mythology question!")
     async def ask_command(self, interaction: discord.Interaction):
+        # code
         question, answer = self.get_random_qna()
         if question:
             self.last_question[interaction.user.id] = (question, answer)
