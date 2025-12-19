@@ -9,7 +9,6 @@ load_dotenv()
 
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix="!" , intents=intents)
-tree=bot.tree
 
 ###############################################
 
@@ -32,7 +31,6 @@ async def on_member_join(member):
 ####################################################    
 
 bot.run(os.getenv('DISCORD_TOKEN'))
-bot.run(os.getenv('PREMIUM_ROLE_ID '))
 
 #cette commande ne se lance pas sauf erreur fatale
 print(" OUPS PROBLEME ")
