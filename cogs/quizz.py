@@ -6,6 +6,7 @@ import os
 import json
 from cogs.score import ScoreSaver
 
+#FONCTIONALITÉ PRINCIPALE DU BOT ICI ON POSE DES QUESTION QUI SONT STOCKÉES DANS UN JSON AVEC LEURS RÉPONSES ET ON VÉRIFIE LA REPONSE DE L'UTILISATEUR
 
 class Quizz_Cog(commands.Cog):
     def __init__(self, bot):
@@ -28,12 +29,12 @@ class Quizz_Cog(commands.Cog):
 
     @app_commands.command(name='ask', description="Ask a random mythology question!")
     async def ask_command(self, interaction: discord.Interaction):
-        # code
         question, answer = self.get_random_qna()
         if question:
             self.last_question[interaction.user.id] = (question, answer)
             embed = discord.Embed(title='Mythology Question | type /answer to respond !', description=question)
-            await interaction.response.send_message(embed=embed)
+            embed.set_image(url="attachment://doyoudare.jpg")
+            await interaction.response.send_message(embed=embed, files=[discord.File("ressources/doyoudare.jpg", filename="doyoudare.jpg")])
         else:
             await interaction.response.send_message("No questions found or error reading file.")
 
