@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
 
-bot = commands.Bot(command_prefix="!" , intents=intents)
+bot = commands.Bot(command_prefix="!")
 
+#MESSAGE DE BIENVENUE
 
 @bot.event
 async def on_member_join(member):
