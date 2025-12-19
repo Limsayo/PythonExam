@@ -15,7 +15,6 @@ bot = commands.Bot(command_prefix="!" , intents=intents)
 #arborescence des commandes assignées au bot
 tree=bot.tree
 #constantes donc en MAJ (ici click droit sur les roles pour prendre leurs id)
-PREMIUM_ROLE_ID = 1450105929759592448
 
 ###############################################
 
@@ -36,6 +35,9 @@ async def on_ready():
     #fetch les fonctions/classes et autres depuis un autre fichier
     await bot.load_extension('cogs.moderation')
     await bot.load_extension('cogs.fun')
+    await bot.load_extension('cogs.quizz')
+    await bot.load_extension('cogs.score')
+    await bot.load_extension('cogs.scoreboard')
     #synchronise les commandes a l'api discord
     await bot.tree.sync()
     print("bot lancé")
@@ -52,6 +54,7 @@ async def on_member_join(member):
 
 #lancement du bot TOUTES ACTIONS AVANT LANCEMENT
 bot.run(os.getenv('DISCORD_TOKEN'))
+bot.run(os.getenv('PREMIUM_ROLE_ID '))
 
 #cette commande ne se lance donc pas sauf erreur fatale
 print(" tu as fait caca ")
